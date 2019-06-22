@@ -3,18 +3,12 @@
 
 	namespace OOP;
 
-	class Worker
+	use \OOP\User;
+
+	require_once __DIR__.'/User.php';
+
+	class Worker extends User
 	{
-		/**
-		 * @var string
-		 */
-		private $name;
-
-		/**
-		 * @var int
-		 */
-		private $age;
-
 		/**
 		 * @var int
 		 */
@@ -26,43 +20,8 @@
 		 * @param int|integer
 		 */
 		public function __construct( string $name = 'default', int $age = 18, int $salary = 100 ) {
-			$this->setName( $name )->setAge( $age )->setSalary( $salary );
-		}
-
-		/**
-		 * @param string
-		 * @return object
-		 */
-		public function setName( string $name ): Worker {
-			$this->name = $name;
-
-			return $this;
-		}
-
-		/**
-		 * @return string
-		 */
-		public function getName(): string {
-			return $this->name;
-		}
-
-		/**
-		 * @param int
-		 * @return object
-		 */
-		public function setAge( int $age ): Worker {
-			if ( $this->isCheckAge( $age ) ) {
-				$this->age = $age;
-			}	
-
-			return $this;
-		}
-
-		/**
-		 * @return int
-		 */
-		public function getAge(): int {
-			return $this->age;
+			parent::__construct( $name, $age );
+			$this->setSalary( $salary );
 		}
 
 		/**
@@ -80,13 +39,5 @@
 		 */
 		public function getSalary(): int {
 			return $this->salary;
-		}
-
-		/**
-		 * @param  int
-		 * @return boolean
-		 */
-		private function isCheckAge( int $age ): bool {
-			return $age > 1 && $age < 100;
 		}
 	}
