@@ -20,6 +20,11 @@
 		 */
 		private $salary;
 
+		/**
+		 * @param string
+		 * @param int|integer
+		 * @param int|integer
+		 */
 		public function __construct( string $name = 'default', int $age = 18, int $salary = 100 ) {
 			$this->setName( $name )->setAge( $age )->setSalary( $salary );
 		}
