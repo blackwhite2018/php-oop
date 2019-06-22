@@ -42,7 +42,9 @@
 		 * @return object
 		 */
 		public function setAge( int $age ): Worker {
-			$this->age = $age;
+			if ( $this->isCheckAge( $age ) ) {
+				$this->age = $age;
+			}	
 
 			return $this;
 		}
@@ -69,5 +71,13 @@
 		 */
 		public function getSalary(): int {
 			return $this->salary;
+		}
+
+		/**
+		 * @param  int
+		 * @return boolean
+		 */
+		private function isCheckAge( int $age ): bool {
+			return $age > 1 && $age < 100;
 		}
 	}
