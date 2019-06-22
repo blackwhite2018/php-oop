@@ -1,8 +1,8 @@
 <?php
-	use \OOP\Worker;
+	use \OOP\Form;
 
-	require_once __DIR__.'/oop/Worker.php';
+	require_once __DIR__.'/oop/Form.php';
 
-	$worker = new Worker( 'Дима', 25, 1000 );
+	$form = new Form;
 
-	echo $worker->getAge() * $worker->getSalary();
+	echo $form->open()->input( ['type' => 'text', 'value' => '1111'] )->close();
